@@ -253,31 +253,68 @@ footer a:hover{color:var(--amber)}
   .rv{opacity:1;transform:none}.hero h1 .line>span{transform:none}.glow{display:none}
 }
 @media(hover:none){.glow{display:none}}
+
+/* ---- motion layer ---- */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--amber),#FF8A3D,var(--green));z-index:300}
+.orb{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:-1;opacity:.5;will-change:transform}
+.orb.o1{width:420px;height:420px;background:rgba(245,165,36,.28);top:-80px;right:-60px;animation:drift 16s ease-in-out infinite}
+.orb.o2{width:360px;height:360px;background:rgba(52,211,153,.16);bottom:-120px;left:-80px;animation:drift 20s ease-in-out infinite reverse}
+@keyframes drift{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(50px,-40px) scale(1.12)}66%{transform:translate(-40px,30px) scale(.94)}}
+.rot{display:inline-block;color:var(--text)}
+.rot b{font-weight:inherit;color:var(--amber2);border-right:3px solid var(--amber);padding-right:4px;animation:blink 1s steps(1) infinite}
+.tilt{transform-style:preserve-3d;transition:transform .25s ease-out;will-change:transform}
+.magnetic{will-change:transform}
+.spark{position:absolute;inset:-2px;border-radius:inherit;padding:2px;pointer-events:none;
+  background:conic-gradient(from var(--a,0deg),transparent 0 70%,var(--amber) 85%,transparent 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 6s linear infinite}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+.word{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.1em}
+.word>i{display:inline-block;font-style:normal;transform:translateY(110%);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.in .word>i{transform:none}
+.growth{position:absolute;left:-10%;right:-10%;bottom:-6%;height:46%;z-index:-1;opacity:.55}
+.growth path.ln{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.8s .6s cubic-bezier(.4,0,.2,1) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.growth path.fl{opacity:0;animation:fade 1.4s 2s forwards}
+@keyframes fade{to{opacity:1}}
+.btn-amber{position:relative;overflow:hidden}
+.btn-amber::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:shine 4s 1.5s infinite}
+@keyframes shine{0%,60%{left:-60%}100%{left:130%}}
+.step .num{transition:transform .3s}.step:hover .num{transform:scale(1.25)}
+.ico{transition:transform .4s cubic-bezier(.2,.8,.2,1)}.tile:hover .ico{transform:rotate(-8deg) scale(1.12)}
+@media(prefers-reduced-motion:reduce){.orb,.spark,.btn-amber::after{animation:none}.word>i{transform:none}.growth path.ln{stroke-dashoffset:0}.growth path.fl{opacity:1}.rot b{animation:none}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
 <div class="glow" id="glow" aria-hidden="true"></div>
 
 <!-- NAV -->
 <nav class="nav" aria-label="Primary">
   <div class="bar">
-    <a href="#top" class="logo">Ghulam<b>.</b></a>
+    <a href="#top" class="logo">Ghulam Murtaza<b>.</b></a>
     <div class="links">
       <a href="#services">Services</a><a href="#process">Process</a><a href="#results">Results</a><a href="#about">About</a><a href="#contact">Contact</a>
     </div>
-    <a class="btn btn-amber cta-d" href="https://wa.me/923024270543?text=Hi%20Ghulam%2C%20I%27d%20like%20to%20discuss%20an%20SEO%20project." target="_blank" rel="noopener">Book a call</a>
+    <a class="btn btn-amber cta-d" href="https://wa.me/923024270543?text=Hi%20Ghulam%20Murtaza%2C%20I%27d%20like%20to%20discuss%20an%20SEO%20project." target="_blank" rel="noopener">Book a call</a>
     <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
     </button>
   </div>
   <div class="menu" id="menu">
     <a href="#services">Services</a><a href="#process">Process</a><a href="#results">Results</a><a href="#about">About</a><a href="#contact">Contact</a>
-    <a href="https://wa.me/923024270543?text=Hi%20Ghulam%2C%20I%27d%20like%20to%20discuss%20an%20SEO%20project." target="_blank" rel="noopener" style="color:var(--amber);font-weight:600">Book a call →</a>
+    <a href="https://wa.me/923024270543?text=Hi%20Ghulam%20Murtaza%2C%20I%27d%20like%20to%20discuss%20an%20SEO%20project." target="_blank" rel="noopener" style="color:var(--amber);font-weight:600">Book a call →</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
+  <span class="orb o1" aria-hidden="true"></span><span class="orb o2" aria-hidden="true"></span>
+  <svg class="growth" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true">
+    <defs><linearGradient id="gf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F5A524" stop-opacity=".25"/><stop offset="1" stop-color="#F5A524" stop-opacity="0"/></linearGradient></defs>
+    <path class="fl" d="M0,280 C150,270 250,250 380,215 C520,175 600,190 740,120 C880,55 1000,70 1200,12 L1200,300 L0,300Z" fill="url(#gf)"/>
+    <path class="ln" pathLength="1" d="M0,280 C150,270 250,250 380,215 C520,175 600,190 740,120 C880,55 1000,70 1200,12" fill="none" stroke="#F5A524" stroke-width="3" stroke-linecap="round"/>
+  </svg>
   <div class="wrap hero-grid">
     <div>
       <span class="pill"><i></i>Taking on new SEO projects</span>
@@ -286,16 +323,16 @@ footer a:hover{color:var(--amber)}
         <span class="line"><span class="grad">revenue,</span></span>
         <span class="line"><span>not just rankings.</span></span>
       </h1>
-      <p class="sub">SEO, GEO &amp; AEO strategist with 8+ years of experience. I get brands ranked on Google, cited by ChatGPT and Perplexity, and turned into real revenue.</p>
+      <p class="sub">SEO, GEO &amp; AEO strategist with 8+ years of experience. I get brands <span class="rot"><b id="rot">ranked on Google</b></span>, and turned into real revenue.</p>
       <div class="cta-row">
-        <a class="btn btn-amber" href="https://wa.me/923024270543?text=Hi%20Ghulam%2C%20I%27d%20like%20a%20free%20consultation." target="_blank" rel="noopener">Book a free consultation
+        <a class="btn btn-amber magnetic" href="https://wa.me/923024270543?text=Hi%20Ghulam%20Murtaza%2C%20I%27d%20like%20a%20free%20consultation." target="_blank" rel="noopener">Book a free consultation
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-line" href="#results">See live results</a>
       </div>
       <div class="proof"><span class="stars" aria-hidden="true">★★★★★</span><span><strong>4.9 / 5</strong> across 1,000+ Fiverr reviews</span></div>
     </div>
 
-    <div class="visual">
+    <div class="visual tilt" id="tilt">
       <div class="float a serp" aria-hidden="true">
         <div class="u"><em>#1</em> yourbrand.com › best-product</div>
         <div class="t">Your Brand: The #1 Choice for…</div>
@@ -369,7 +406,7 @@ footer a:hover{color:var(--amber)}
           <h3>Not sure what you need?</h3>
           <p>Send me your URL. I'll tell you honestly where the biggest opportunity is, and whether SEO is even the right lever.</p>
         </div>
-        <a class="btn btn-amber" style="align-self:flex-start" href="https://wa.me/923024270543?text=Hi%20Ghulam%2C%20I%27d%20like%20a%20free%20SEO%20audit." target="_blank" rel="noopener">Get a free SEO audit
+        <a class="btn btn-amber" style="align-self:flex-start" href="https://wa.me/923024270543?text=Hi%20Ghulam%20Murtaza%2C%20I%27d%20like%20a%20free%20SEO%20audit." target="_blank" rel="noopener">Get a free SEO audit
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
     </div>
@@ -448,11 +485,11 @@ footer a:hover{color:var(--amber)}
 <!-- CTA -->
 <section class="cta" style="padding-top:110px">
   <div class="wrap">
-    <div class="cta-box rv">
+    <div class="cta-box rv"><span class="spark" aria-hidden="true"></span>
       <h2>Ready to turn search into <span class="grad">revenue?</span></h2>
       <p>Tell me about your site and goals. I'll tell you honestly what's possible.</p>
       <div class="cta-row">
-        <a class="btn btn-amber" href="https://wa.me/923024270543?text=Hi%20Ghulam%2C%20I%27d%20like%20to%20discuss%20an%20SEO%20project." target="_blank" rel="noopener">Message on WhatsApp
+        <a class="btn btn-amber" href="https://wa.me/923024270543?text=Hi%20Ghulam%20Murtaza%2C%20I%27d%20like%20to%20discuss%20an%20SEO%20project." target="_blank" rel="noopener">Message on WhatsApp
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <a class="btn btn-line" href="#contact">Other ways to reach me</a>
       </div>
@@ -493,7 +530,7 @@ footer a:hover{color:var(--amber)}
   </div>
 </footer>
 
-<a class="wa" href="https://wa.me/923024270543?text=Hi%20Ghulam%2C%20I%27d%20like%20to%20discuss%20an%20SEO%20project." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a class="wa" href="https://wa.me/923024270543?text=Hi%20Ghulam%20Murtaza%2C%20I%27d%20like%20to%20discuss%20an%20SEO%20project." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 00-8.600 15L2 22l5.200-1.400A10 10 0 1012 2zm5.600 14.300c-.2.600-1.300 1.200-1.800 1.300-.5.100-1 .2-3.200-.7-2.700-1.100-4.400-3.800-4.600-4-.1-.2-1.100-1.500-1.100-2.800 0-1.300.7-2 1-2.200.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5.2.5.7 1.800.8 1.900.1.200.1.300 0 .5-.1.200-.2.300-.3.500-.2.200-.3.300-.5.500-.2.200-.3.400-.1.700.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.500 1.500.3.100.5.100.7-.1.2-.2.700-.8.900-1.100.2-.3.400-.2.700-.1l1.900.9c.3.100.5.200.6.300.1.200.1.800-.1 1.400z"/></svg>
 </a>
 
@@ -530,6 +567,34 @@ footer a:hover{color:var(--amber)}
   var links=document.querySelectorAll('.links a');
   var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
   ['services','process','results','about','contact'].forEach(function(id){so.observe(document.getElementById(id))});
+
+
+  // ---- motion layer ----
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pr=document.getElementById('progress'),orbs=document.querySelectorAll('.orb'),port=document.querySelector('.hero .portrait img');
+  function onScroll(){var h=document.documentElement,y=h.scrollTop,max=h.scrollHeight-h.clientHeight;pr.style.transform='scaleX('+(max?y/max:0)+')';
+    if(!reduce&&y<1400){orbs.forEach(function(o,i){o.style.marginTop=(y*(i?-.12:.18))+'px'});if(port)port.style.objectPosition='50% '+(12+y*.01)+'%'}}
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+  document.querySelectorAll('h2.title,.cta-box h2').forEach(function(h){
+    (function walk(n){Array.prototype.slice.call(n.childNodes).forEach(function(c){
+      if(c.nodeType===3){var f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(w){if(!w.trim()){f.appendChild(document.createTextNode(w));return}
+        var o=document.createElement('span');o.className='word';var i=document.createElement('i');i.textContent=w;o.appendChild(i);f.appendChild(o)});n.replaceChild(f,c)}
+      else if(c.nodeType===1)walk(c)})})(h);
+    h.querySelectorAll('.word>i').forEach(function(i,k){i.style.transitionDelay=(k*.05)+'s'});
+    var wo=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){h.classList.add('in');wo.disconnect()}})},{threshold:.3});wo.observe(h)});
+  var rot=document.getElementById('rot');
+  if(rot&&!reduce){var ph=['ranked on Google','cited by ChatGPT','quoted by Perplexity','chosen in AI answers','found on Shopify & Wix'],pi=0,ci=ph[0].length,del=true;
+    (function tick(){var w=ph[pi];ci+=del?-1:1;rot.textContent=w.slice(0,ci);var d=del?35:70;
+      if(!del&&ci===w.length){del=true;d=1700}else if(del&&ci===0){del=false;pi=(pi+1)%ph.length;d=300}setTimeout(tick,d)})()}
+  if(!reduce&&matchMedia('(hover:hover)').matches){
+    var tl=document.getElementById('tilt');
+    if(tl){tl.parentNode.addEventListener('pointermove',function(e){var r=tl.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;tl.style.transform='perspective(900px) rotateY('+(x*10)+'deg) rotateX('+(-y*8)+'deg)'});
+      tl.parentNode.addEventListener('pointerleave',function(){tl.style.transform=''})}
+    document.querySelectorAll('.magnetic,.nav .btn,.wa').forEach(function(b){
+      b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.25)+'px,'+((e.clientY-r.top-r.height/2)*.35)+'px)'});
+      b.addEventListener('pointerleave',function(){b.style.transform=''})});
+  }
+  document.querySelectorAll('.bento .rv,.tgrid .rv,.steps .rv').forEach(function(el,i){el.style.transitionDelay=((i%4)*.09)+'s'});
 
   // contact form
   var ENDPOINT="https://formspree.io/f/xqpakbkd";
