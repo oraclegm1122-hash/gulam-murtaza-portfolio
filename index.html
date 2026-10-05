@@ -446,6 +446,49 @@ dialog#lightbox img{width:100%;border-radius:14px;background:#fff}
   body{padding-bottom:76px}
 }
 @media(prefers-reduced-motion:reduce){.sigt{stroke-dashoffset:0;fill:var(--amber);animation:none}}
+
+/* case studies */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.fchip{padding:10px 20px;border-radius:999px;border:1px solid var(--line2);background:none;font-size:.9rem;min-height:44px;transition:all .2s}
+.fchip:hover{border-color:var(--amber);color:var(--amber)}
+.fchip.on{background:var(--amber);border-color:var(--amber);color:#1A1100;font-weight:600}
+.cgrid2{display:grid;gap:16px;margin-top:34px}
+@media(min-width:700px){.cgrid2{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1020px){.cgrid2{grid-template-columns:repeat(3,1fr)}}
+.ccard{position:relative;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:12px;min-height:300px;transition:border-color .3s,transform .3s;cursor:pointer;overflow:hidden}
+.ccard:hover{border-color:rgba(245,165,36,.45);transform:translateY(-4px)}
+.ccard.hide{display:none}
+.ccard .nt{font:500 .7rem var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);display:flex;justify-content:space-between;gap:10px}
+.ccard .nt em{font-style:normal;color:var(--green)}
+.ccard .bg{font:700 clamp(2.6rem,5vw,3.6rem) var(--display);letter-spacing:-.04em;line-height:1;margin-top:8px}
+.ccard h3{font-size:1.2rem;line-height:1.2}
+.ccard p{color:var(--mute);font-size:.92rem}
+.ccard .go{margin-top:auto;color:var(--amber);font-weight:600;font-size:.9rem;display:flex;gap:8px;align-items:center}
+dialog#csDialog{border:none;background:transparent;width:min(860px,94vw);max-height:92vh;margin:auto;padding:0;overflow:visible;color:var(--text)}
+dialog#csDialog::backdrop{background:rgba(3,6,12,.82);backdrop-filter:blur(6px)}
+.csbox{position:relative;background:var(--bg);border:1px solid var(--line2);border-radius:28px;padding:clamp(26px,4vw,48px);max-height:92vh;overflow:auto}
+.csbox .lbx{top:14px;right:14px}
+.cs-n{font:500 .74rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
+.cs-t{font:700 clamp(1.7rem,4vw,2.5rem) var(--display);letter-spacing:-.03em;line-height:1.08;margin:12px 0 10px;padding-right:40px}
+.cs-l{color:var(--mute);max-width:60ch}
+.cs-stats{display:grid;gap:12px;margin:28px 0}
+@media(min-width:640px){.cs-stats{grid-template-columns:repeat(3,1fr)}}
+.cs-stat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.cs-stat b{display:block;font:700 1.6rem var(--display);letter-spacing:-.03em}
+.cs-stat span{color:var(--mute);font-size:.82rem;line-height:1.4;display:block;margin-top:4px}
+.cs-h{font:500 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:30px 0 12px}
+.cs-chart{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 14px 10px}
+.cs-chart svg{width:100%;height:auto;display:block}
+.cs-q{display:grid;gap:12px}
+.cs-q .r{display:grid;grid-template-columns:1fr auto;gap:2px 16px;align-items:end}
+.cs-q .nm{font-size:.92rem;word-break:break-word}
+.cs-q .v{font:700 .95rem var(--display);text-align:right;white-space:nowrap}.cs-q .v small{color:var(--mute);font-weight:500;font-size:.72rem;margin-left:6px}
+.cs-q .bar{grid-column:1/-1;height:6px;border-radius:99px;background:var(--line);overflow:hidden}.cs-q .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--amber),#FF8A3D);border-radius:99px}
+.cs-w{display:grid;gap:12px;list-style:none}
+.cs-w li{display:flex;gap:14px;color:var(--mute);font-size:.93rem}.cs-w li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--amber);margin-top:9px}
+.cs-note{margin-top:28px;padding:18px 20px;border-radius:16px;border:1px dashed var(--line2);color:var(--mute);font-size:.9rem}
+.cs-note b{color:var(--text)}
+.cs-nav{display:flex;justify-content:space-between;gap:12px;margin-top:28px;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -458,7 +501,7 @@ dialog#lightbox img{width:100%;border-radius:14px;background:#fff}
   <div class="bar">
     <a href="#top" class="logo">Ghulam Murtaza<b>.</b></a>
     <div class="links">
-      <a href="#services">Services</a><a href="#process">Process</a><a href="#results">Results</a><a href="#about">About</a><a href="#audit">Free audit</a><a href="#contact">Contact</a>
+      <a href="#services">Services</a><a href="#results">Results</a><a href="#cases">Case studies</a><a href="#about">About</a><a href="#audit">Free audit</a><a href="#contact">Contact</a>
     </div>
     <a class="btn btn-amber cta-d" href="https://wa.me/923024270543?text=Hi%20Ghulam%20Murtaza%2C%20I%27d%20like%20to%20discuss%20an%20SEO%20project." target="_blank" rel="noopener">Book a call</a>
     <button class="theme" id="theme" aria-label="Switch to light mode" title="Toggle light / dark">
@@ -470,7 +513,7 @@ dialog#lightbox img{width:100%;border-radius:14px;background:#fff}
     </button>
   </div>
   <div class="menu" id="menu">
-    <a href="#services">Services</a><a href="#process">Process</a><a href="#results">Results</a><a href="#about">About</a><a href="#audit">Free audit</a><a href="#contact">Contact</a>
+    <a href="#services">Services</a><a href="#results">Results</a><a href="#cases">Case studies</a><a href="#about">About</a><a href="#audit">Free audit</a><a href="#contact">Contact</a>
     <a href="https://wa.me/923024270543?text=Hi%20Ghulam%20Murtaza%2C%20I%27d%20like%20to%20discuss%20an%20SEO%20project." target="_blank" rel="noopener" style="color:var(--amber);font-weight:600">Book a call →</a>
   </div>
 </nav>
@@ -495,7 +538,7 @@ dialog#lightbox img{width:100%;border-radius:14px;background:#fff}
       <div class="cta-row">
         <a class="btn btn-amber magnetic" href="https://wa.me/923024270543?text=Hi%20Ghulam%20Murtaza%2C%20I%27d%20like%20a%20free%20consultation." target="_blank" rel="noopener">Book a free consultation
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-line" href="#results">See live results</a>
+        <a class="btn btn-line" href="#cases">See case studies</a>
       </div>
       <svg class="sig" viewBox="0 0 330 70" role="img" aria-label="Signature: Ghulam Murtaza"><text x="4" y="52" class="sigt">Ghulam Murtaza</text></svg>
       <div class="proof"><span class="stars" aria-hidden="true">★★★★★</span><span><strong>4.9 / 5</strong> across 1,000+ Fiverr reviews</span></div>
@@ -652,6 +695,24 @@ dialog#lightbox img{width:100%;border-radius:14px;background:#fff}
 </section>
 
 
+
+<!-- CASE STUDIES -->
+<section id="cases">
+  <div class="wrap">
+    <span class="eyebrow">Case studies</span>
+    <h2 class="title">Real client results, with the numbers and the caveats</h2>
+    <p class="lead">Nine projects, straight from Search Console and Semrush. Client names are withheld. Where I can't credit the work for a result, I say so.</p>
+    <div class="filters" role="group" aria-label="Filter case studies">
+      <button class="fchip on" data-f="all" type="button">All 9</button>
+      <button class="fchip" data-f="Growth" type="button">Organic growth</button>
+      <button class="fchip" data-f="AI search" type="button">AI search</button>
+      <button class="fchip" data-f="Technical" type="button">Technical fixes</button>
+    </div>
+    <div class="cgrid2" id="cgrid"></div>
+  </div>
+</section>
+<dialog id="csDialog" aria-labelledby="csTitle"><div class="csbox"><button type="button" class="lbx" id="csClose" aria-label="Close">×</button><div id="csBody"></div></div></dialog>
+
 <!-- FREE AUDIT -->
 <section id="audit" style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="wrap audit">
@@ -778,7 +839,7 @@ dialog#lightbox img{width:100%;border-radius:14px;background:#fff}
   // active nav link
   var links=document.querySelectorAll('.links a');
   var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
-  ['services','process','results','about','audit','contact'].forEach(function(id){so.observe(document.getElementById(id))});
+  ['services','results','cases','about','audit','contact'].forEach(function(id){so.observe(document.getElementById(id))});
 
 
   // ---- motion layer ----
@@ -820,6 +881,47 @@ dialog#lightbox img{width:100%;border-radius:14px;background:#fff}
   // mobile CTA bar after hero
   var mb=document.getElementById('mbar');
   addEventListener('scroll',function(){mb.classList.toggle('show',scrollY>500)},{passive:true});
+
+
+  // ---- case studies ----
+  var CASES=[{"id": 1, "tag": "Growth", "niche": "Company-filings website · Spain", "big": "25x", "title": "36 clicks a month. One year later: 893.", "lead": "June 2025 vs June 2026, organic only, no ads.", "stats": [["893", "clicks in June 2026, from 36 a year earlier"], ["265 → 5,504", "clicks, June to September, 2025 vs 2026"], ["10 → 214", "clicks for one lookup query, early vs latest window"]], "series": {"title": "Monthly clicks from Google", "labels": ["Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"], "values": [36, 70, 25, 134, 310, 412, 340, 309, 464, 745, 759, 709, 893, 2531, 654, 1426], "note": "June 2025 to September 2026. July is peak filing season in Spain, so I compare the same months year on year."}, "queries": [["irus registro mercantil", 146, 5.5], ["codigo irus", 114, 4.1], ["irus", 94, 5.6], ["codigo irus registro mercantil", 81, 4.4], ["buscar irus registro mercantil", 46, 3.1]], "work": ["89 dead URLs redirected: grouped into 7 patterns, then a 301 to the closest real page or a 410 where nothing was left. Live in August 2026.", "English version built in with a translation plugin and its SEO add-on.", "Five priority pages rewritten in place: new titles, descriptions and content, no URL or layout changes."], "note": "The technical work landed late in the curve (August and September 2026) and the climb started earlier, so I do not credit it for the whole 25x. Ad-equivalent value is about $0: nobody bids on these searches, and I have no lead data, so I have not guessed a number.", "src": "Google Search Console, Semrush"}, {"id": 2, "tag": "Growth", "niche": "Local tour operator · US", "big": "12,126", "title": "Clicks from Google in 10 months.", "lead": "Roughly $19K of clicks they did not have to buy, at $1.66 each.", "stats": [["12,126", "clicks, December 2025 to September 2026"], ["≈ $19K", "ad-equivalent value (11,496 extra clicks × $1.66 average CPC)"], ["6 → 2.7", "average position of the main keyword, now at a 10% CTR"]], "series": {"title": "Monthly clicks from Google", "labels": ["Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"], "values": [63, 1152, 1339, 1562, 1730, 1111, 1156, 1380, 1378, 1255], "note": "Search Console tracking starts in December 2025. April peaked at 1,730; it has held between roughly 1,100 and 1,400 since."}, "queries": [["[city] wine tours", 1069, 2.7], ["[city] wine tour", 207, 4.3], ["wine tours [city]", 188, 3.2], ["[city] winery tour", 134, 3.8], ["wine tour [city]", 106, 3.0]], "work": [], "note": "Priced keyword by keyword across 45 page-one keywords: the main keyword is $1.74 and the range is $0.75 to $3.11. Clicks are not customers. This is what the traffic would have cost, not what it earned. City name hidden.", "src": "Google Search Console, Semrush"}, {"id": 3, "tag": "Growth", "niche": "Vehicle restoration shop · US", "big": "+77%", "title": "Brand searches fell 28%. Clicks still grew 40%.", "lead": "More clicks from searches that do not include the company name, June to September year on year.", "stats": [["+77%", "non-brand clicks (6,055 → 10,706)"], ["-28%", "brand clicks (3,271 → 2,357), so none of the growth is brand lift"], ["16.9 → 8.2", "average desktop position, year on year (mobile 8.5 → 6.6)"]], "series": null, "queries": [["land cruiser restomod", 200, 2.9], ["restomod land cruiser", 178, 2.5], ["restored land cruiser", 154, 6.7], ["toyota land cruiser restomod", 95, 3.7], ["restored toyota land cruiser", 89, 2.9]], "work": [], "note": "4,651 extra non-brand clicks at a $0.68 average CPC is about $3.2K of ad-equivalent value over four months. For a shop where one build is a large sale, the value is the enquiries. I have no revenue figure, so I have not guessed one.", "src": "Google Search Console, Semrush"}, {"id": 4, "tag": "Growth", "niche": "Made-to-measure mattress store · Spain", "big": "5.7x", "title": "From 88 clicks a month to nearly 500.", "lead": "October 2025 to July 2026, led by searches for a custom camper mattress.", "stats": [["88 → 498", "monthly clicks, October to July peak"], ["202 → 1,325", "non-brand clicks, June to September year on year"], ["3.6x", "still up from October after the post-season dip to 320"]], "series": {"title": "Monthly clicks from Google", "labels": ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"], "values": [88, 128, 98, 135, 233, 284, 318, 398, 445, 498, 362, 320], "note": "Camper season peaked in July. August and September cooled to 362 and 320."}, "queries": [["colchones a medida camper", 58, 8.9], ["colchones camper a medida", 45, 8.3], ["colchon camper a medida", 39, 4.0], ["colchon camper", 34, 8.4], ["colchon a medida camper", 32, 4.7]], "work": [], "note": "Small number, honestly: camper mattress searches cost 16 cents to about a dollar a click, so the ad-equivalent value is about $500 for four months. The point is the direction, from a handful of non-brand visits to over 300 a month.", "src": "Google Search Console, Semrush"}, {"id": 5, "tag": "Growth", "niche": "Counselling practice · multi-clinician", "big": "+85%", "title": "Same four months, 85% more non-brand clicks.", "lead": "2,108 clicks became 3,892, from searches that do not include the practice name.", "stats": [["+85%", "non-brand clicks, June to September year on year"], ["634 → 1,000+", "monthly clicks, stepped up from February and held"], ["17.9 → 8.9", "average mobile position, year on year"]], "series": {"title": "Monthly clicks from Google", "labels": ["Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"], "values": [634, 601, 637, 835, 1019, 1040, 962, 937, 1064, 1138, 1060, 1067], "note": "October 2025 to September 2026, all searches."}, "queries": [["emotional deprivation", 18, 7.6], ["emotional deprivation schema", 15, 9.5], ["emdr therapy [city]", 14, 6.6], ["what are the 17 symptoms of ptsd", 14, 10.7], ["emdr side effects", 12, 20.9]], "work": ["Oct 2025: split the sitemap into pages, posts and clinician profiles.", "Flagged: three clinicians each had two live URLs with different titles, and I recommended consolidating them."], "note": "Most of these searches are informational and nobody bids on them: only 7 of 56 keywords have a CPC, so ad-equivalent value is about $300. Here the value is visibility and bookings, not ad savings.", "src": "Google Search Console, Semrush"}, {"id": 6, "tag": "Technical", "niche": "Technical fixes · real client work", "big": "89", "title": "The least exciting SEO work I did this year.", "lead": "Dead URLs, a wrong canonical and a hacked site, across several client sites.", "stats": [["89", "dead URLs sorted into 7 redirect rules (301 and 410)"], ["1", "law-firm homepage canonicalised to an inner page, rechecked until fixed"], ["1", "hacked site cleaned and rechecked clean; a second one still open"]], "series": null, "queries": [], "work": ["70 broken URLs on a UK travel-experiences site, each opened live and mapped to the closest real page. Mobile position 24.2 → 12.5, desktop 35.0 → 20.7, over June to September.", "A law firm's homepage declared an inner page as its canonical. I flagged it on 21 July, found it still wrong on 21 August, and it was fixed after the second reminder. A fix does not count until you have rechecked it.", "Spam and malware URLs on a marketing-agency site: listed, cleaned by the client, recheck clean. On another client's site, a noindex on the internal search template cut part of the junk but spam URLs still show, so it is not finished."], "note": "I cannot credit the redirects alone for the travel site's position gains, and its total clicks stayed roughly flat (down 4%) over the same window. Free self-check: Search Console Indexing > Pages for Not found URLs, URL Inspection on your homepage, a site search for words like casino or pills, and your sitemap for errors.", "src": "Google Search Console"}, {"id": 7, "tag": "AI search", "niche": "Driving school · UK", "big": "46.8K", "title": "Impressions inside Google's AI Overviews.", "lead": "June to September 2026, across 232 pages. Plus click-through rate up 32% in three months.", "stats": [["46.8K", "AI Overview impressions, June to September (67.6K over six months)"], ["0.60% → 0.79%", "click-through rate, June to September, impressions steady near 100,000 a month"], ["17,580", "citations inside AI Overviews for one provisional-license guide"]], "series": null, "queries": [["what can you do with a provisional license uk at 16", 84, 2.4], ["driving", 23, 8.7], ["driving lessons bexleyheath", 19, 21.0], ["driving lessons bermondsey", 17, 12.6], ["new driving laws 2026", 13, 9.8]], "work": [], "note": "The top query is a provisional-license guide, not the brand name. It built its own audience before ever being asked for by name. AI Overview impressions come from Search Console's Generative AI report: a visibility channel standard rank trackers do not show yet, not a guaranteed click.", "src": "Google Search Console, Generative AI report"}, {"id": 8, "tag": "AI search", "niche": "Immigration law firm · Spain", "big": "18 / 23", "title": "Tracked keywords now trigger an AI Overview.", "lead": "All 23 tracked keywords already rank on page 1 of Google, and 18 surface inside an AI Overview.", "stats": [["23 / 23", "tracked keywords on page 1"], ["78%", "trigger an AI Overview (18 of 23)"], ["7 / 5 / 11", "keywords in positions 1-3 / 4-6 / 7-10"]], "series": null, "queries": [["immigration forms spain · AI", 5400, 3], ["legalizacion y apostillamiento · AI", 3600, 1], ["utex extranjeria · AI", 590, 8], ["immigration lawyers spain", 320, 7], ["certificado de registro de la ue · AI", 260, 3]], "qunit": "searches/mo", "work": [], "note": "About 11,500 combined monthly searches sit across this list. This is a Semrush snapshot from October 2026, not a tracked trend, since the site is not yet connected to Search Console. The firm's name and domain are withheld; the search terms are real.", "src": "Semrush"}, {"id": 9, "tag": "Growth", "niche": "Commercial building products · US", "big": "886", "title": "Zero organic clicks to 886, in three months.", "lead": "Search Console shows no organic clicks before SEO work began in June 2026.", "stats": [["886", "organic clicks since June 2026, from zero"], ["41,086", "impressions in Google Search, June to September"], ["19.8 → 12.3", "average position, first week tracked vs last"]], "series": {"title": "Monthly clicks from Google", "labels": ["Jun*", "Jul", "Aug", "Sep"], "values": [91, 288, 248, 259], "note": "*June only has data from the 19th, when Search Console first logged an impression for this site."}, "queries": [["black fire extinguisher cabinet", 6, 3.0], ["elevator shaft smoke detector access panel", 6, 1.2], ["cage ladder details", 4, 1.1], ["safety hoops on ladder", 4, 1.0], ["cage ladder dimensions", 3, 1.0]], "work": [], "note": "These are specification-level searches: product engineers and architects checking a detail, not browsing. Five of the six top queries sit at position 1 to 3. Average position moved from the bottom of page 2 to the top of page 2 in three months.", "src": "Google Search Console"}];
+  var grid=document.getElementById('cgrid'),dlg=document.getElementById('csDialog'),body=document.getElementById('csBody'),cur=0;
+  function esc(t){return String(t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+  function fmt(n){return n.toLocaleString('en-US')}
+  CASES.forEach(function(c,i){
+    var b=document.createElement('button');b.type='button';b.className='ccard rv';b.dataset.tag=c.tag;b.dataset.i=i;
+    b.innerHTML='<span class="nt"><span>'+esc(c.niche)+'</span><em>'+esc(c.tag)+'</em></span><span class="bg">'+esc(c.big)+'</span><h3>'+esc(c.title)+'</h3><p>'+esc(c.lead)+'</p><span class="go">View the numbers <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>';
+    b.style.transitionDelay=((i%3)*.08)+'s';
+    grid.appendChild(b);io.observe(b)});
+  function chart(sr){
+    var W=760,H=300,L=44,B=34,T=24,n=sr.values.length,max=Math.max.apply(null,sr.values),top=Math.ceil(max/ (max>1000?500:100))*(max>1000?500:100),
+      bw=(W-L)/n,g='';
+    [0,.5,1].forEach(function(f){var y=T+(H-T-B)*(1-f);g+='<line x1="'+L+'" x2="'+W+'" y1="'+y+'" y2="'+y+'" stroke="currentColor" opacity=".12"/><text x="'+(L-8)+'" y="'+(y+4)+'" text-anchor="end" font-size="11" fill="currentColor" opacity=".6">'+fmt(Math.round(top*f))+'</text>'});
+    sr.values.forEach(function(v,i){var h=(H-T-B)*v/top,x=L+i*bw+bw*.18,w=bw*.64,y=H-B-h,hi=v===max;
+      g+='<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="4" fill="'+(hi?'#F5A524':'#F5A52488')+'"/>';
+      if(hi||i===0||i===n-1)g+='<text x="'+(x+w/2)+'" y="'+(y-6)+'" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">'+fmt(v)+'</text>';
+      g+='<text x="'+(x+w/2)+'" y="'+(H-12)+'" text-anchor="middle" font-size="11" fill="currentColor" opacity=".6">'+esc(sr.labels[i])+'</text>'});
+    return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+esc(sr.title+': '+sr.labels.map(function(l,i){return l+' '+sr.values[i]}).join(', '))+'">'+g+'</svg>'}
+  function open(i){
+    cur=i;var c=CASES[i],h='<div class="cs-n">Case study '+('0'+c.id).slice(-2)+' · '+esc(c.niche)+'</div><h3 class="cs-t" id="csTitle">'+esc(c.big)+' · '+esc(c.title)+'</h3><p class="cs-l">'+esc(c.lead)+'</p><div class="cs-stats">';
+    c.stats.forEach(function(s){h+='<div class="cs-stat"><b>'+esc(s[0])+'</b><span>'+esc(s[1])+'</span></div>'});h+='</div>';
+    if(c.series)h+='<div class="cs-h">'+esc(c.series.title)+'</div><div class="cs-chart">'+chart(c.series)+'</div><p class="cs-l" style="font-size:.85rem;margin-top:10px">'+esc(c.series.note)+'</p>';
+    if(c.queries.length){var mx=Math.max.apply(null,c.queries.map(function(q){return q[1]}));h+='<div class="cs-h">Top queries'+(c.qunit?' by search volume':' by clicks')+'</div><div class="cs-q">';
+      c.queries.forEach(function(q){h+='<div class="r"><span class="nm">'+esc(q[0])+'</span><span class="v">'+fmt(q[1])+'<small>'+(c.qunit?esc(c.qunit)+' · ':'')+'pos '+q[2]+'</small></span><div class="bar"><i style="width:'+Math.max(4,q[1]/mx*100)+'%"></i></div></div>'});h+='</div>'}
+    if(c.work.length){h+='<div class="cs-h">What I did</div><ul class="cs-w">';c.work.forEach(function(w){h+='<li>'+esc(w)+'</li>'});h+='</ul>'}
+    h+='<div class="cs-note"><b>Honest note.</b> '+esc(c.note)+' <br><span style="opacity:.8">Source: '+esc(c.src)+'.</span></div>';
+    h+='<div class="cs-nav"><button type="button" class="btn btn-line" id="csPrev">← Previous</button><a class="btn btn-amber" href="#audit" id="csCta">Get a free audit</a><button type="button" class="btn btn-line" id="csNext">Next →</button></div>';
+    body.innerHTML=h;
+    document.getElementById('csPrev').onclick=function(){open((cur+CASES.length-1)%CASES.length);dlg.querySelector('.csbox').scrollTop=0};
+    document.getElementById('csNext').onclick=function(){open((cur+1)%CASES.length);dlg.querySelector('.csbox').scrollTop=0};
+    document.getElementById('csCta').onclick=function(){dlg.close()};
+    if(!dlg.open)dlg.showModal()}
+  grid.addEventListener('click',function(e){var b=e.target.closest('.ccard');if(b)open(+b.dataset.i)});
+  document.getElementById('csClose').onclick=function(){dlg.close()};
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+  document.querySelectorAll('.fchip').forEach(function(f){f.addEventListener('click',function(){
+    document.querySelectorAll('.fchip').forEach(function(x){x.classList.toggle('on',x===f)});
+    grid.querySelectorAll('.ccard').forEach(function(c){c.classList.toggle('hide',f.dataset.f!=='all'&&c.dataset.tag!==f.dataset.f)})})});
 
   // contact form
   var ENDPOINT="https://formspree.io/f/xqpakbkd";
