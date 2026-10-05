@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://oraclegm1122-hash.github.io/gulam-murtaza-portfolio/sitemap.xml
